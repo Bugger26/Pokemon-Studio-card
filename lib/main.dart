@@ -15,7 +15,7 @@ class CustomPokemonApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pokedex Terminal',
+      title: 'Pokemon Database',
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFF0A0F1D),
@@ -82,18 +82,18 @@ class _CustomSearchPageState extends State<CustomSearchPage> {
         });
       } else if (response.statusCode == 404) {
         setState(() {
-          _errorMessage = 'Wala makit-i ang Pokémon "$formattedName". Susiha ang spelling.';
+          _errorMessage = 'Pokémon "$formattedName" not found. Please check the spelling.';
           _isLoading = false;
         });
       } else {
         setState(() {
-          _errorMessage = 'Napakyas sa pag-load (Error: ${response.statusCode}).';
+          _errorMessage = 'Failed to load (Error: ${response.statusCode}).';
           _isLoading = false;
         });
       }
     } catch (e) {
       setState(() {
-        _errorMessage = 'Network error. Susiha ang imong internet connection.';
+        _errorMessage = 'Network error. Please check your internet connection.';
         _isLoading = false;
       });
     }
